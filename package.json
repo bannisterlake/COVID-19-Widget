@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-boilerplate",
+  "name": "covid-19",
   "version": "1.0.0",
-  "description": "Boilerplate for creating react website applications using data that can be updated post deployment",
+  "description": "COVID-19 Cases map widget",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --host 0.0.0.0 --mode development ",
