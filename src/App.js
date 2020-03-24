@@ -1,22 +1,35 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import {makeStyles} from '@material-ui/core/styles';
+import {Button} from '@material-ui/core'
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import ReactTooltip from 'react-tooltip'
 import axios from 'axios'
 
 //Components
 import Map from './components/Map';
+import TableChart from './components/Table';
 
 const styles = makeStyles({
 	title: {
-		padding: '10px 0',
+		marginTop: '10px',
 		textAlign: 'center',
 		color: '#d9d9d9', 
-		fontSize: '38px',
+		fontSize: '34px',
 		fontWeight: 'bold', 
 		backgroundColor: 'rgba(38, 38, 38, 0.8)'
 
+	},
+	widgetNav: {
+		position:'relative',
+		fontSize: '12px',
+		'& button': {
+			fontSize: '12px',
+			color: 'white'
+		}
+	},
+	selected: {
+		border: '1px solid white !important'
 	}
 })
 
@@ -25,6 +38,8 @@ const App = () => {
 	const [data, setData] = useState(null)
 
 	const [counter, setCounter] = useState(360)
+
+	const [widget, toggleWidget] = useState("map")
 
 	const classes = styles();
 
@@ -69,8 +84,13 @@ const App = () => {
 
 	return (
 		<div className="main">
-			<div className={classes.title} style={{fontSize: small && '20px'}} >COVID-19 Confirmed Cases</div>
-			<TransformWrapper 
+			<div className={classes.title} style={{fontSize: small && '20px'}} >COVID-19 Confirmed Cases
+				<div className={classes.widgetNav}>
+					<Button className={widget === "map" && classes.selected} onClick={()=>toggleWidget("map")}>Map</Button>
+					<Button className={widget === "table" && classes.selected} onClick={()=>toggleWidget("table")}>Table</Button>
+				</div>
+			</div>
+			{widget === 'map' && <TransformWrapper 
 				wheel={{
 					step: 80
 				}}
@@ -81,10 +101,14 @@ const App = () => {
 				onPanning={closeTooltip}
 				onPinching={closeTooltip}
 				>
-	
+					
 				<Map data={data}/>
 				{/* {data && <p>{data.generated}</p>} */}
-			</TransformWrapper>
+			</TransformWrapper>}
+			{ widget === "table" &&
+				<TableChart data={data} />
+			}
+
 		</div>
 	);
 }
