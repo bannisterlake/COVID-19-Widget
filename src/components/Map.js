@@ -115,14 +115,14 @@ const Map = (props) => {
         const results = getCountryData(country)
         if (results) {
             let color = scale[5]
-            if (results.confirmed < 10) {
+            if (results.confirmed < 100) {
                 color = scale[1];
-            } else if (results.confirmed < 100) {
+            } else if (results.confirmed < 1000) {
                 color = scale[2]; 
 
-            } else if (results.confirmed < 999) {
+            } else if (results.confirmed < 4999) {
                 color = scale[3]
-            } else if (results.confirmed < 9999) {
+            } else if (results.confirmed < 50000) {
                 color =  scale[4];
             }
             return color; 
@@ -184,16 +184,16 @@ const Map = (props) => {
                                 <div className={classes.bullet} style={{backgroundColor: scale[0]}}/> <div>0 or no data</div>
                             </div>
                             <div>
-                                <div className={classes.bullet} style={{backgroundColor: scale[1]}}/> <div>1-9</div>
+                                <div className={classes.bullet} style={{backgroundColor: scale[1]}}/> <div>1-99</div>
                             </div>
                             <div>
-                                <div className={classes.bullet} style={{backgroundColor: scale[2]}}/> <div>10-99</div>
+                                <div className={classes.bullet} style={{backgroundColor: scale[2]}}/> <div>100-999</div>
                             </div><div>
-                                <div className={classes.bullet} style={{backgroundColor: scale[3]}}/> <div>100-999</div>
+                                <div className={classes.bullet} style={{backgroundColor: scale[3]}}/> <div>1,000-4,999</div>
                             </div><div>
-                                <div className={classes.bullet} style={{backgroundColor: scale[4]}}/> <div>1,000-9,999</div>
+                                <div className={classes.bullet} style={{backgroundColor: scale[4]}}/> <div>5,000-49,999</div>
                             </div><div>
-                                <div className={classes.bullet} style={{backgroundColor: scale[5]}}/> <div>10,000+</div>
+                                <div className={classes.bullet} style={{backgroundColor: scale[5]}}/> <div>50,000+</div>
                             </div>
                         </div>
 

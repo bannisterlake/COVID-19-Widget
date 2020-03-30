@@ -25,14 +25,14 @@ const styles = makeStyles({
         fontSize: '16px', 
         display: 'flex', 
         '& div': {
-            padding: '5px 10px'
+            padding: '5px'
         }
     }, 
     dataDivSm: {
         fontSize: '12px', 
         display: 'flex', 
         '& div': {
-            padding: '2px 5px'
+            padding: '2px'
         }
     },
     label: {
