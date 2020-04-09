@@ -120,9 +120,9 @@ const Map = (props) => {
             } else if (results.confirmed < 1000) {
                 color = scale[2]; 
 
-            } else if (results.confirmed < 4999) {
+            } else if (results.confirmed < 10000) {
                 color = scale[3]
-            } else if (results.confirmed < 50000) {
+            } else if (results.confirmed < 100000) {
                 color =  scale[4];
             }
             return color; 
@@ -189,11 +189,11 @@ const Map = (props) => {
                             <div>
                                 <div className={classes.bullet} style={{backgroundColor: scale[2]}}/> <div>100-999</div>
                             </div><div>
-                                <div className={classes.bullet} style={{backgroundColor: scale[3]}}/> <div>1,000-4,999</div>
+                                <div className={classes.bullet} style={{backgroundColor: scale[3]}}/> <div>1,000-9,999</div>
                             </div><div>
-                                <div className={classes.bullet} style={{backgroundColor: scale[4]}}/> <div>5,000-49,999</div>
+                                <div className={classes.bullet} style={{backgroundColor: scale[4]}}/> <div>10,000-99,999</div>
                             </div><div>
-                                <div className={classes.bullet} style={{backgroundColor: scale[5]}}/> <div>50,000+</div>
+                                <div className={classes.bullet} style={{backgroundColor: scale[5]}}/> <div>100,000+</div>
                             </div>
                         </div>
 

@@ -4,7 +4,9 @@ import {makeStyles} from '@material-ui/core/styles';
 import {Button} from '@material-ui/core'
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import ReactTooltip from 'react-tooltip'
-import axios from 'axios'
+
+import packageJson from '../package.json';
+global.appVersion = packageJson.version;
 
 //Components
 import Map from './components/Map';
@@ -51,7 +53,7 @@ const App = () => {
 
 	const [counter, setCounter] = useState(360)
 
-	const [widget, toggleWidget] = useState("chart")
+	const [widget, toggleWidget] = useState("map")
 
 	const classes = styles();
 
@@ -62,7 +64,7 @@ const App = () => {
 
 	const getData = () => {
 		console.log("fetching..")
-		fetch(`./data/data.json`,{ cache: "no-cache"})
+		fetch(`./data/countrytotals.json`,{ cache: "no-cache"})
 			.then(res => {
 				if (res.ok) {
 					return res.json();
