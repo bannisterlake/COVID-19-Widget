@@ -16,5 +16,8 @@ Run production build for deployment:
 
 This command creates a 'dist' folder. Place the contents of this folder in a directory on website (using ftp etc..)
 
-Updating data: 
-Using blade runner - save COVID-19 data to a file labeled 'data.json' in the /data directory where production build was saved.
+Updating data: Using blade runner (two files required):
+
+Overall World COVID-19 data needs to be pushed to a file labeled 'data.json' in the /data directory where production build was saved. 
+
+Daily COVID-19 update data needs to be pushed to files labeled 'countries.json' in the same /data directory

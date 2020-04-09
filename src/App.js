@@ -64,7 +64,7 @@ const App = () => {
 
 	const getData = () => {
 		console.log("fetching..")
-		fetch(`./data/countrytotals.json`,{ cache: "no-cache"})
+		fetch(`./data/data.json`,{ cache: "no-cache"})
 			.then(res => {
 				if (res.ok) {
 					return res.json();
